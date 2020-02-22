@@ -22,9 +22,8 @@ for rows in filedata:
 	line = rows.split("==")
 	try:
 		subprocess.check_call([sys.executable, "-m", "pip", "install", line[0]])
-	except subprocess.CalledProcesError as cd:
+	except:
 		error.append(line[0])
-		print ("error code", cd.returncode)
 
 if len(error) == 0:
 	println ("success")
